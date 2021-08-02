@@ -8,6 +8,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi import FastAPI, File, UploadFile,Request
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 app = FastAPI()
 
@@ -44,3 +45,5 @@ async def get_body(request: Request):
     return response.json()
 
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
